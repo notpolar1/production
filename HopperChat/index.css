@@ -1,0 +1,216 @@
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: local("Open Sans"),
+    local("OpenSans"),
+    url("/fonts/opensans-regular.woff2") format("woff2"),
+    url("/fonts/opensans-regular.woff") format("woff");
+  font-display: "swap";
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: local("Open Sans Semibold"),
+    local("OpenSans-Semibold"),
+    url("/fonts/opensans-semibold.woff2") format("woff2"),
+    url("/fonts/opensans-semibold.woff") format("woff");
+  font-display: "swap";
+}
+@font-face {
+  font-family: "Material Icons";
+  src: url("/fonts/materialicons-regular.woff2") format("woff2");
+}
+:root {
+  --font-default: "Open Sans", -apple-system, "SegoeUI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  --font-body: 400 17px / 1.75 var(--font-default);
+  --background-primary: #0f0f0f;
+  --background-secondary: #171717;
+  --text-primary: #fff;
+  --transition-default: all .3s ease-in-out;
+  --hopper-green: #09b366;
+}
+body {
+  margin: 0;
+  font: var(--font-body);
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.hero-text {
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 40px;
+  display: flex;
+  flex-flow: column;
+  row-gap: 30px;
+  align-items: flex-start;
+}
+#points-canvas {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.hero-headline {
+  font: 600 40px / 1.75 var(--font-default);
+  margin: 0;
+  color: #fff;
+}
+.hero-description {
+  margin: 0
+}
+.home-section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 70px 15px;
+  gap: 30px;
+  border-top: 1px solid var(--background-secondary);
+  width: min(calc(100vw - 30px), 1000px);
+  margin-inline: auto;
+  box-sizing: border-box;
+  min-height: 400px;
+}
+@media (min-width:720px) {
+  .home-section {
+    flex-flow: row;
+    width: min(calc(100vw - 80px), 1000px);
+    column-gap: 40px;
+  }
+}
+.section-text {
+  width: min(80vw, 720px)
+}
+.section-title {
+  font: 600 28px / 1.75 var(--font-default)
+}
+.text {
+  position: relative;
+  display: block;
+  right: 0;
+  transition: var(--transition-default);
+  transition-property: right;
+}
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+.primary-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  background: linear-gradient(#f0f0f0, #fff);
+  box-shadow: 0 0 10px #0003;
+  color: #121212;
+  padding: 16px 40px;
+  line-height: 1;
+  border: 0;
+  box-sizing: border-box;
+  transition: var(--transition-default);
+  transition-property: transform;
+}
+.primary-action::after {
+  position: absolute;
+  right: 36px;
+  content: "arrow_right_alt";
+  font-family: "Material Icons";
+  font-size: 18px;
+  opacity: 0;
+  transition: var(--transition-default);
+}
+.primary-action:hover {
+  transform: scale(1.05);
+}
+.primary-action:hover .text {
+  right: 8px;
+}
+.primary-action:hover::after {
+  opacity: 1;
+  right: 24px;
+}
+.hero-reasons {
+  list-style-type: none;
+  margin: 0
+}
+.hero-reasons li {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.hero-reasons li::before {
+  content: "check";
+  font-family: "Material Icons";
+  color: var(--hopper-green)
+}
+.alternate-action {
+  color: #fff;
+  text-decoration: none;
+  transition: transform .3s ease-in-out
+}
+.alternate-action:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  transform: scale(1.1)
+}
+.iphone-13 {
+  flex-shrink: 0;
+  flex: 1 0 auto;
+  position: relative;
+  --carousel-width: min(200px, calc(100vw - 60px));
+  --carousel-height: calc(var(--carousel-width) * 2.03);
+  --slide-width: calc(var(--carousel-width) * 0.92);
+  --slide-height: calc(var(--carousel-height) * 0.95);
+  width: var(--carousel-width);
+  height: var(--carousel-height);
+  overflow-x: hidden;
+  display: grid;
+  place-items: center;
+}
+.iphone-13-svg {
+  --case-color: #434343;
+  width: 100%;
+  height: var(--carousel-height);
+  position: absolute;
+  z-index: 1;
+}
+.slide-container {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  overflow-x: hidden;
+}
+#slide {
+  display: flex;
+  width: 100%;
+  height: var(--slide-height);
+  box-sizing: border-box;
+}
+.carousel-image {
+  width: var(--slide-width);
+  object-fit: cover;
+}
+.smooth-slide {
+  transition: transform 1000ms ease-in-out;
+}

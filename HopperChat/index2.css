@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: local("Open Sans"),
+    local("OpenSans"),
+    url("/fonts/opensans-regular.woff2") format("woff2"),
+    url("/fonts/opensans-regular.woff") format("woff");
+  font-display: "swap";
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: local("Open Sans Semibold"),
+    local("OpenSans-Semibold"),
+    url("/fonts/opensans-semibold.woff2") format("woff2"),
+    url("/fonts/opensans-semibold.woff") format("woff");
+  font-display: "swap";
+}
+@font-face {
+  font-family: "Material Icons";
+  src: url("/fonts/materialicons-regular.woff2") format("woff2");
+}
+:root {
+  --font-default: "Open Sans", -apple-system, "SegoeUI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  --font-body: 400 min(16px, 5.4vmin) / 1.75 var(--font-default);
+  --background-primary: #121212;
+  --background-secondary: #2f323e;
+  --text-primary: #ffffff;
+  --text-secondary: #c9d1e5;
+  --transition-default: all .3s ease-in-out;
+  --hopper-green: #09b366;
+  --hopper-blue: #1964d4;
+  --hopper-red: #e24141;
+  --hopper-yellow: #edd853;
+}
+body {
+  margin: 0;
+  font: var(--font-body);
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  padding: 0 20px;
+  column-gap: 5px;
+  box-sizing: border-box;
+}
+.header div {
+  column-gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #c8d6f3;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.nav-item {
+  color: #bbb;
+  text-decoration: 0;
+  font-size: 15px;
+  transition: .1s ease-in-out;
+}
+.nav-item:hover {
+  color: #fff;
+}
+.hero {
+  position: relative;
+  min-height: 200vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.bubble {
+  display: flex;
+  flex-flow: column;
+  border-radius: 22px;
+  padding: 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 250px;
+  line-height: 1.3;
+  background: var(--background-secondary);
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.bubble.mine {
+  align-self: flex-end;
+  background: linear-gradient(#7320e9, #2476e8) fixed;
+}
